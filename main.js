@@ -67,7 +67,29 @@ $(document).ready(function(){
     $('.our-fleets .fleets').append(fleets);
   };
 
-  renderCars(cars, cars_start);
+  function scrollNav() {
+    $('.nav a').click(function(){
+      var self = $(this);
+      //Toggle Class
+      $(".active").removeClass("active");
+      self.closest('li').addClass("active");
+      var theClass = self.attr("class");
+      $('.' + theClass).parent('li').addClass('active');
+      //Animate
+      $('html, body').stop().animate({
+        scrollTop: $(self.attr('href')).offset().top
+      }, 400);
+      return false;
+    });
+    $('.navbar-header a').scrollTop();
+  }
+
+  function init() {
+    renderCars(cars, cars_start);
+    scrollNav();
+  }
+
+  init();
 
   $('.more-trucks').click(function(){
     cars_start += 4;
@@ -82,6 +104,7 @@ $(document).ready(function(){
       $(this).find('.truck-more').hide();
     }
   );
+
   // $.getJSON('cars.json', function(data){
   //   cars = JSON.parse(data);
   //   console.log(cars);
