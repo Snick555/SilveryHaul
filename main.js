@@ -179,6 +179,7 @@ $(document).ready(function(){
         0: { color: 'EDEEF3' },
         1: { color: '4CABFF' }
       },
+      pieSliceText: 'none',
       legend: 'none'
     };
     var chart = new google.visualization.PieChart(document.getElementById('facts-chart'));
