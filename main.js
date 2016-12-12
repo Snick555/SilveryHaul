@@ -13,6 +13,78 @@ $(document).ready(function(){
         "Germany": 5,
         "Ukraine": 12
       }
+    }, {
+      "image": "images/truck.jpg",
+      "title": "Scania R480 8x2",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum tortor sed leo gravida ultrices. Nunc pretium, orci sed lobortis iaculis, mauris turpis facilisis augue, vitae pulvinar mi neque id nisl.",
+      "class": "D",
+      "distance": 150000,
+      "trips": 121,
+      "km": 20000,
+      "visited_countries": {
+        "Germany": 8,
+        "Poland": 12
+      }
+    }, {
+      "image": "images/truck.jpg",
+      "title": "Scania R480 8x2",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum tortor sed leo gravida ultrices. Nunc pretium, orci sed lobortis iaculis, mauris turpis facilisis augue, vitae pulvinar mi neque id nisl.",
+      "class": "C",
+      "distance": 300000,
+      "trips": 121,
+      "km": 300000,
+      "visited_countries": {
+        "Germany": 5,
+        "Ukraine": 12
+      }
+    }, {
+      "image": "images/truck.jpg",
+      "title": "Scania R480 8x2",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum tortor sed leo gravida ultrices. Nunc pretium, orci sed lobortis iaculis, mauris turpis facilisis augue, vitae pulvinar mi neque id nisl.",
+      "class": "D",
+      "distance": 150000,
+      "trips": 121,
+      "km": 20000,
+      "visited_countries": {
+        "Germany": 8,
+        "Poland": 12
+      }
+    }, {
+      "image": "images/truck.jpg",
+      "title": "Scania R480 8x2",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum tortor sed leo gravida ultrices. Nunc pretium, orci sed lobortis iaculis, mauris turpis facilisis augue, vitae pulvinar mi neque id nisl.",
+      "class": "D",
+      "distance": 150000,
+      "trips": 121,
+      "km": 20000,
+      "visited_countries": {
+        "Germany": 8,
+        "Poland": 12
+      }
+    }, {
+      "image": "images/truck.jpg",
+      "title": "Scania R480 8x2",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum tortor sed leo gravida ultrices. Nunc pretium, orci sed lobortis iaculis, mauris turpis facilisis augue, vitae pulvinar mi neque id nisl.",
+      "class": "C",
+      "distance": 300000,
+      "trips": 121,
+      "km": 300000,
+      "visited_countries": {
+        "Germany": 5,
+        "Ukraine": 12
+      }
+    }, {
+      "image": "images/truck.jpg",
+      "title": "Scania R480 8x2",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum tortor sed leo gravida ultrices. Nunc pretium, orci sed lobortis iaculis, mauris turpis facilisis augue, vitae pulvinar mi neque id nisl.",
+      "class": "D",
+      "distance": 150000,
+      "trips": 121,
+      "km": 20000,
+      "visited_countries": {
+        "Germany": 8,
+        "Poland": 12
+      }
     }
   ];
 
@@ -75,7 +147,9 @@ $(document).ready(function(){
       modal.find('.countries').html(Object.keys(cars[id]['visited_countries']).join('<br />'));
 
       setTimeout(function(){
-        google.charts.setOnLoadCallback(drawRegionsMap(id));
+        // google.charts.setOnLoadCallback(drawRegionsMap(id));
+        google.charts.setOnLoadCallback(drawChart);
+        google.charts.setOnLoadCallback(drawStuff);
       }, 1000);
     });
   }
@@ -92,13 +166,80 @@ $(document).ready(function(){
     chart.draw(data, options);
   }
 
+  function drawChart() {
+    var number = 60;
+    var data = google.visualization.arrayToDataTable([
+      ['Effort', 'Amount given'],
+      ['', 100 - number],
+      ['', number]
+    ]);
+    var options = {
+      pieHole: 0.7,
+      slices: {
+        0: { color: 'EDEEF3' },
+        1: { color: '4CABFF' }
+      },
+      legend: 'none'
+    };
+    var chart = new google.visualization.PieChart(document.getElementById('facts-chart'));
+    chart.draw(data, options);
+  }
+
+  function drawStuff() {
+    var data = new google.visualization.arrayToDataTable([
+      ['', '1st', '2nd', '3rd', '4th'],
+      ['January', 100, 200, 150, 300],
+      ['Fabruary', 100, 200, 150, 300],
+      ['March', 100, 200, 150, 300],
+      ['April', 100, 200, 150, 300],
+      ['May', 100, 200, 150, 300],
+      ['June', 100, 200, 150, 300],
+      ['July', 100, 200, 150, 300],
+      ['August', 100, 200, 150, 300],
+      ['September', 100, 200, 150, 300],
+      ['October', 100, 200, 150, 300],
+      ['November', 100, 200, 150, 300],
+      ['December', 100, 200, 150, 300],
+    ]);
+
+    var options = {
+      vAxis: {
+        gridlines: {
+          color: 'transparent'
+        },
+        baselineColor: 'transparent',
+        textPosition: 'none'
+      },
+      title: '2016',
+      titleFontSize: 20,
+      titleColor: 'red',
+      colors: ['#FFB901', '#FFB901', '#FFB901', '#FFB901'],
+      legend: {
+        position: 'none'
+      },
+      focusTarget: 'category',
+      chartArea: {
+        width: '100%'
+      },
+      bar: {
+        groupWidth: '90%'
+      },
+      fontSize: 10
+    };
+
+    var chart = new google.visualization.ColumnChart(document.getElementById('months-chart'));
+    chart.draw(data, options);
+  }
+
   function init() {
     renderCars(start);
     scrollNav();
     moreTrucks();
 
     // charts
-    google.charts.load('upcoming', {'packages':['geochart']});
+    // google.charts.load('upcoming', {'packages':['geochart']});
+    google.charts.load('current', {'packages':['corechart']});
+    // google.charts.load('current', {'packages':['bar']});
   }
 
   init();
