@@ -1,70 +1,45 @@
 $(document).ready(function(){
-  var cars_start = 0;
-  var cars = JSON.parse('[{"image": "images/truck.jpg", "title": "Scania R480 8x2", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum tortor sed leo gravida ultrices. Nunc pretium, orci sed lobortis iaculis, mauris turpis facilisis augue, vitae pulvinar mi neque id nisl.", "class": "C", "distance": "300 000", "trips": "121", "km": "300 000", "vc": "112"}, {"image": "images/truck.jpg", "title": "Scania R480 8x2", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum tortor sed leo gravida ultrices. Nunc pretium, orci sed lobortis iaculis, mauris turpis facilisis augue, vitae pulvinar mi neque id nisl.", "class": "C", "distance": "300 000", "trips": "121", "km": "300 000", "vc": "112"}, {"image": "images/truck.jpg", "title": "Scania R480 8x2", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum tortor sed leo gravida ultrices. Nunc pretium, orci sed lobortis iaculis, mauris turpis facilisis augue, vitae pulvinar mi neque id nisl.", "class": "C", "distance": "300 000", "trips": "121", "km": "300 000", "vc": "112"}, {"image": "images/truck.jpg", "title": "Scania R480 8x2", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum tortor sed leo gravida ultrices. Nunc pretium, orci sed lobortis iaculis, mauris turpis facilisis augue, vitae pulvinar mi neque id nisl.", "class": "C", "distance": "300 000", "trips": "121", "km": "300 000", "vc": "112"}, {"image": "images/truck.jpg", "title": "Scania R480 8x2", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum tortor sed leo gravida ultrices. Nunc pretium, orci sed lobortis iaculis, mauris turpis facilisis augue, vitae pulvinar mi neque id nisl.", "class": "C", "distance": "300 000", "trips": "121", "km": "300 000", "vc": "112"}, {"image": "images/truck.jpg", "title": "Scania R480 8x2", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum tortor sed leo gravida ultrices. Nunc pretium, orci sed lobortis iaculis, mauris turpis facilisis augue, vitae pulvinar mi neque id nisl.", "class": "C", "distance": "300 000", "trips": "121", "km": "300 000", "vc": "112"}, {"image": "images/truck.jpg", "title": "Scania R480 8x2", "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum tortor sed leo gravida ultrices. Nunc pretium, orci sed lobortis iaculis, mauris turpis facilisis augue, vitae pulvinar mi neque id nisl.", "class": "C", "distance": "300 000", "trips": "121", "km": "300 000", "vc": "112"}]');
+  var start = 0;
+  var cars = [
+    {
+      "image": "images/truck.jpg",
+      "title": "Scania R480 8x2",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum tortor sed leo gravida ultrices. Nunc pretium, orci sed lobortis iaculis, mauris turpis facilisis augue, vitae pulvinar mi neque id nisl.",
+      "class": "C",
+      "distance": 300000,
+      "trips": 121,
+      "km": 300000,
+      "visited_countries": {
+        "Germany": 5,
+        "Ukraine": 12
+      }
+    }
+  ];
 
-  function renderCars(cars, cars_start){
+  function setValues(obj, i){
+    obj.find('.truck-img').attr('src', cars[i]['image']);
+    obj.find('.truck-title').html(cars[i]['title']);
+    obj.find('.truck-description').html(cars[i]['description']);
+    obj.find('.truck-class span').html(cars[i]['class']);
+    obj.find('.truck-distance span').html(cars[i]['distance']);
+    obj.find('.truck-trips span').html(cars[i]['trips']);
+    obj.find('.truck-km span').html(cars[i]['km']);
+    obj.find('.truck-vc span').html(Object.keys(cars[i]['visited_countries']).length);
+  }
+
+  function renderCars(start){
     var fleets = '';
-    var cars_end = cars_start + 4;
-    for (var i = cars_start; i < cars_end; i++) {
+    var end = start + 4;
+    for (var i = start; i < end; i++) {
       if (typeof cars[i] === 'undefined') {
         break;
       }
-      fleets += '\
-        <div class="col-md-6 fleet">\
-          <div class="row">\
-            <div class="col-md-6">\
-              <img src="' + cars[i]['image'] + '" alt="Truck" class="truck-img"/>\
-            </div>\
-            <div class="col-md-6">\
-              <div class="truck-title">\
-                ' + cars[i]['title'] + '\
-              </div>\
-              <div class="truck-description">\
-                ' + cars[i]['description'] + '\
-              </div>\
-              <div class="truck-class">\
-                Class\
-                <span>' + cars[i]['class'] + '</span>\
-              </div>\
-              <div class="truck-distance">\
-                Distance\
-                <span>' + cars[i]['distance'] + '</span>\
-              </div>\
-              <div class="truck-details-button">\
-                Details\
-              </div>\
-            </div>\
-          </div>\
-          <div class="truck-more">\
-            <hr />\
-            <div class="row">\
-              <div class="col-md-3">\
-                <div class="truck-trips">\
-                  Trips\
-                  <br />\
-                  <span>' + cars[i]['trips'] + '</span>\
-                </div>\
-              </div>\
-              <div class="col-md-6">\
-                <div class="truck-km">\
-                  Km\
-                  <br />\
-                  <span>' + cars[i]['km'] + '</span>\
-                </div>\
-              </div>\
-              <div class="col-md-3">\
-                <div class="truck-vc">\
-                  Visited countries\
-                  <br />\
-                  <span>' + cars[i]['vc'] + '</span>\
-                </div>\
-              </div>\
-            </div>\
-          </div>\
-        </div>\
-      ';
+      var fleet = $('.our-fleets .fleet-copy').clone();
+      fleet.removeClass('fleet-copy').addClass('fleet');
+      setValues(fleet, i);
+      fleet.find('.truck-details-button').attr('truck-id', i);
+      $('.our-fleets .fleets').append(fleet);
     }
-    $('.our-fleets .fleets').append(fleets);
   };
 
   function scrollNav() {
@@ -84,35 +59,53 @@ $(document).ready(function(){
     $('.navbar-header a').scrollTop();
   }
 
+  function moreTrucks() {
+    $('.our-fleets .fleet').on('mouseover', function(){
+      $(this).find('.truck-more').show();
+    });
+
+    $('.our-fleets .fleet').on('mouseout', function(){
+      $(this).find('.truck-more').hide();
+    });
+
+    $('.our-fleets .truck-details-button').on('click', function(){
+      var id = $(this).attr('truck-id');
+      var modal = $('#truckModal');
+      setValues(modal, id);
+      modal.find('.countries').html(Object.keys(cars[id]['visited_countries']).join('<br />'));
+
+      setTimeout(function(){
+        google.charts.setOnLoadCallback(drawRegionsMap(id));
+      }, 1000);
+    });
+  }
+
+  function drawRegionsMap(id) {
+    var countries = [['Country', '']];
+    var car_data = cars[id]['visited_countries'];
+    for(var i in car_data){
+      countries.push([i, car_data[i]]);
+    }
+    var data = google.visualization.arrayToDataTable(countries);
+    var options = {};
+    var chart = new google.visualization.GeoChart(document.getElementById('visited-countries-chart'));
+    chart.draw(data, options);
+  }
+
   function init() {
-    renderCars(cars, cars_start);
+    renderCars(start);
     scrollNav();
+    moreTrucks();
+
+    // charts
+    google.charts.load('upcoming', {'packages':['geochart']});
   }
 
   init();
 
   $('.more-trucks').click(function(){
-    cars_start += 4;
-    renderCars(cars, cars_start);
+    start += 4;
+    renderCars(start);
+    moreTrucks();
   });
-
-  $('.our-fleets .fleet').hover(
-    function(){
-      $(this).find('.truck-more').show();
-    },
-    function(){
-      $(this).find('.truck-more').hide();
-    }
-  );
-
-  // $.getJSON('cars.json', function(data){
-  //   cars = JSON.parse(data);
-  //   console.log(cars);
-  // });
-  // $('object').each(function(){
-  //   var svgDoc = this.contentDocument;
-  //   var styleElement = svgDoc.createElementNS("http://www.w3.org/2000/svg", "style");
-  //   styleElement.textContent = "svg { fill: red }"; // add whatever you need here
-  //   svgDoc.getElementById("Capa_1").appendChild(styleElement);
-  // });
 });

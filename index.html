@@ -9,6 +9,7 @@
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="main.js"></script>
   </head>
   <body>
@@ -156,6 +157,115 @@
           </div>
         </div>
         <div class="row fleets">
+          <div class="col-md-6 fleet-copy">
+            <div class="row">
+              <div class="col-md-6">
+                <img src="" alt="Truck" class="truck-img"/>
+              </div>
+              <div class="col-md-6">
+                <div class="truck-title"></div>
+                <div class="truck-description"></div>
+                <div class="truck-class">
+                  Class
+                  <span></span>
+                </div>
+                <div class="truck-distance">
+                  Distance
+                  <span></span>
+                </div>
+                <div class="truck-details-button" data-toggle="modal" data-target="#truckModal">
+                  Details
+                </div>
+              </div>
+            </div>
+            <div class="truck-more">
+              <hr />
+              <div class="row">
+                <div class="col-md-3">
+                  <div class="truck-trips">
+                    Trips
+                    <br />
+                    <span></span>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="truck-km">
+                    Km
+                    <br />
+                    <span></span>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="truck-vc">
+                    Visited countries
+                    <br />
+                    <span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="truckModal" tabindex="-1" role="dialog" aria-labelledby="truckModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <div class="row truck-info">
+                  <div class="col-md-3">
+                    <img src="images/truck.jpg" alt="Truck" class="truck-img"/>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="truck-title">
+                      Scania R480 8x2 + Generator Mammoet
+                    </div>
+                    <div class="truck-description">
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum tortor sed leo gravida ultrices. Nunc pretium, orci sed lobortis iaculis, mauris turpis facilisis augue, vitae pulvinar mi neque id nisl.
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    Class
+                    <span></span>
+                  </div>
+                </div>
+                <div class="row truck-more-info">
+                  <div class="col-md-3">
+                    <div class="truck-trips">
+                      Trips
+                      <br />
+                      <span></span>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="truck-km">
+                      Km
+                      <br />
+                      <span></span>
+                    </div>
+                  </div>
+                  <div class="col-md-3">
+                    <div class="truck-vc">
+                      Visited countries
+                      <br />
+                      <span></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row truck-visited-countries">
+                  <div class="col-md-3">
+                    <div class="title">
+                      Visited countries
+                    </div>
+                    <div class="countries"></div>
+                  </div>
+                  <div id="visited-countries-chart" class="col-md-9"></div>
+                </div>
+                <div class="row truck-statistic">
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="row">
           <div class="more-trucks">
