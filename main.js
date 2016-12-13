@@ -11,7 +11,9 @@ $(document).ready(function(){
       "km": 300000,
       "visited_countries": {
         "Germany": 5,
-        "Ukraine": 12
+        "Ukraine": 12,
+        "Italy": 28,
+        "China": 2
       }
     }, {
       "image": "images/truck.jpg",
@@ -146,11 +148,12 @@ $(document).ready(function(){
       setValues(modal, id);
       modal.find('.countries').html(Object.keys(cars[id]['visited_countries']).join('<br />'));
 
+      // charts
       setTimeout(function(){
-        // google.charts.setOnLoadCallback(drawRegionsMap(id));
+        google.charts.setOnLoadCallback(drawRegionsMap(id));
         google.charts.setOnLoadCallback(drawChart);
         google.charts.setOnLoadCallback(drawStuff);
-      }, 1000);
+      }, 200);
     });
   }
 
@@ -161,7 +164,11 @@ $(document).ready(function(){
       countries.push([i, car_data[i]]);
     }
     var data = google.visualization.arrayToDataTable(countries);
-    var options = {};
+    var options = {
+      datalessRegionColor: '#CAE5FC',
+      legend: 'none',
+      colors: ['#4DACFE', '#4DACFE']
+    };
     var chart = new google.visualization.GeoChart(document.getElementById('visited-countries-chart'));
     chart.draw(data, options);
   }
@@ -180,7 +187,9 @@ $(document).ready(function(){
         1: { color: '4CABFF' }
       },
       pieSliceText: 'none',
-      legend: 'none'
+      legend: 'none',
+      // pieStartAngle: 180,
+      // sliceVisibilityThreshold: (100 - number) / 100 + 0.01
     };
     var chart = new google.visualization.PieChart(document.getElementById('facts-chart'));
     chart.draw(data, options);
@@ -213,7 +222,7 @@ $(document).ready(function(){
       },
       title: '2016',
       titleFontSize: 20,
-      titleColor: 'red',
+      titleColor: '#4B4B4B',
       colors: ['#FFB901', '#FFB901', '#FFB901', '#FFB901'],
       legend: {
         position: 'none'
@@ -237,10 +246,7 @@ $(document).ready(function(){
     scrollNav();
     moreTrucks();
 
-    // charts
-    // google.charts.load('upcoming', {'packages':['geochart']});
     google.charts.load('current', {'packages':['corechart']});
-    // google.charts.load('current', {'packages':['bar']});
   }
 
   init();

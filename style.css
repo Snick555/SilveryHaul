@@ -268,22 +268,49 @@
 #truckModal .truck-info {
   height: 215px;
   border-bottom: 2px solid #E8E9E9;
-  display: none;
+  padding: 20px;
+  padding-left: 50px;
+}
+#truckModal .truck-info .truck-title {
+  font-size: 36px;
+}
+#truckModal .truck-info .truck-class {
+  float: none;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 15px;
 }
 #truckModal .truck-more-info {
   height: 190px;
   border-bottom: 2px solid #E8E9E9;
   background-color: #F7F8FA;
-  display: none;
+  color: #52586E;
+  padding: 20px;
+  padding-left: 50px;
+  font-size: 18px;
+}
+#truckModal .truck-more-info span {
+  font-size: 90px;
 }
 #truckModal .truck-visited-countries {
   height: 460px;
   background-color: #FBFBFD;
-  display: none;
+  padding: 20px;
+  padding-left: 50px;
+  font-size: 16px;
+}
+#truckModal .truck-visited-countries .vc-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #4B4B4B;
 }
 #truckModal .truck-statistic {
   height: 330px;
   border-top: 2px solid #E8E9E9;
+  padding: 20px;
+  padding-left: 50px;
 }
 #truckModal #visited-countries-chart, #truckModal #facts-chart, #truckModal #months-chart {
   height: 100%;
