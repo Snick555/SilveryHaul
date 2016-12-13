@@ -120,13 +120,17 @@
   float: left;
   margin: 10px;
 }
-.socials .social-icon object {
+.socials .social-icon.linkedin {
+  padding: 4px 6px;
+}
+.socials .social-icon svg {
   width: 16px;
-  color-fill: grey;
+  height: 16px;
   fill: grey;
 }
-.socials .social-icon object svg {
-  fill: grey;
+.socials .social-icon.linkedin svg {
+  width: 14px;
+  height: 14px;
 }
 
 /* Common */
@@ -135,6 +139,16 @@
 
 .about-us {
   padding: 50px 0;
+  position: relative;
+}
+.about-us .about-us-image {
+  position: absolute;
+  background-image: url('images/image2.jpg');
+  background-size: cover;
+  width: 35%;
+  height: 100%;
+  right: 0;
+  top: 0;
 }
 .about-us .title {
   text-align: left;
@@ -184,10 +198,12 @@
   font-size: 18px;
   font-weight: bold;
   color: #0A1332;
+  margin-bottom: 10px;
 }
 .our-fleets .truck-description {
   font-size: 12px;
   color: #9295A4;
+  margin-bottom: 5px;
 }
 .our-fleets .truck-distance {
   color: #0A1332;
@@ -207,6 +223,7 @@
   text-align: center;
   border: 2px solid #FFB901;
   cursor: pointer;
+  margin-top: 15px;
 }
 .our-fleets .truck-more {
   display: none;
@@ -238,18 +255,22 @@
   font-weight: bold;
 }
 .our-fleets .more-trucks {
-  margin: 0 auto;
-  width: 200px;
+  margin: 100px auto 0;
+  font-size: 12px;
+  width: 180px;
   text-align: center;
   background-color: #FFB901;
   height: 50px;
-  padding: 15px;
+  padding: 18px;
   border-radius: 2px;
   text-transform: uppercase;
   cursor: pointer;
 }
 .our-fleets .more-trucks:hover {
   background-color: #FFB920;
+}
+.our-fleets .fleets {
+  margin-top: 50px;
 }
 .our-fleets .fleet-copy {
   display: none;
@@ -323,6 +344,7 @@
 .our-team {
   padding: 50px 0;
   background-color: #F7F8FA;
+  color: #0A1332;
 }
 .our-team .description {
   text-align: center;
@@ -338,20 +360,30 @@
   font-weight: bold;
   margin-top: 20px;
   text-align: center;
+  color: #0A1332;
 }
 .our-team .team-position {
   text-align: center;
+  color: #9295A4;
 }
 .our-team .team-email {
   margin-top: 40px;
   text-align: center;
-  text-transform: italic;
+  font-style: italic;
 }
 .our-team .team-phone {
-  margin-top: 10px;
+  margin: 10px 0 20px;
   text-align: center;
   font-size: 16px;
   background-color: #EDEEF3;
+  padding: 6px;
+  border-radius: 3px;
+}
+.our-team .team {
+  margin-top: 50px;
+}
+.our-team .team-item-copy {
+  display: none;
 }
 
 /* End Our Team */
@@ -373,6 +405,9 @@
 }
 .footer .navbar-nav li.active a {
   color: #FFB901;
+}
+.footer .navbar-nav li.socials .social-icon {
+  margin-top: 30px;
 }
 
 /* End Footer */

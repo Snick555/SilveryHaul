@@ -89,6 +89,31 @@ $(document).ready(function(){
       }
     }
   ];
+  var team = [
+    {
+      "image": "images/face.jpg",
+      "name": "Joshua Ross",
+      "position": "Founder, CEO",
+      "email": "joshua@gmail.com",
+      "phone": "1234567890",
+      "socials": {
+        "facebook": "#",
+        "twitter": "#",
+        "linkedin": "#"
+      }
+    }, {
+      "image": "images/face.jpg",
+      "name": "Joshua Ross",
+      "position": "Founder, CEO",
+      "email": "joshua@gmail.com",
+      "phone": "1234567890",
+      "socials": {
+        "facebook": "#",
+        "twitter": "#",
+        "linkedin": "#"
+      }
+    }
+  ];
 
   function setValues(obj, i){
     obj.find('.truck-img').attr('src', cars[i]['image']);
@@ -102,7 +127,6 @@ $(document).ready(function(){
   }
 
   function renderCars(start){
-    var fleets = '';
     var end = start + 4;
     for (var i = start; i < end; i++) {
       if (typeof cars[i] === 'undefined') {
@@ -113,6 +137,22 @@ $(document).ready(function(){
       setValues(fleet, i);
       fleet.find('.truck-details-button').attr('truck-id', i);
       $('.our-fleets .fleets').append(fleet);
+    }
+  };
+
+  function renderTeam(){
+    for (var i = 0; i < team.length; i++) {
+      var item = $('.our-team .team-item-copy').clone();
+      item.removeClass('team-item-copy').addClass('team-item');
+      item.find('.team-image').attr('src', team[i]['image']);
+      item.find('.team-name').html(team[i]['name']);
+      item.find('.team-position').html(team[i]['position']);
+      item.find('.team-email').html(team[i]['email']);
+      item.find('.team-phone').html(team[i]['phone']);
+      item.find('.socials .facebook').attr('href', team[i]['socials']['facebook']);
+      item.find('.socials .twitter').attr('href', team[i]['socials']['twitter']);
+      item.find('.socials .linkedin').attr('href', team[i]['socials']['linkedin']);
+      $('.our-team .team').append(item);
     }
   };
 
@@ -243,6 +283,7 @@ $(document).ready(function(){
 
   function init() {
     renderCars(start);
+    renderTeam();
     scrollNav();
     moreTrucks();
 
