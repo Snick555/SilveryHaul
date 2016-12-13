@@ -1,6 +1,22 @@
+/* Fonts */
+
 @font-face {
-  font-family: 'Aleo';
-  src: url("Aleo-BoldItalic.otf") format("opentype");
+  font-family: 'Arvo BoldItalic';
+  src: url("fonts/Arvo-BoldItalic.ttf") format("opentype");
+}
+@font-face {
+  font-family: 'Ubuntu';
+  src: url("fonts/Ubuntu-R.ttf") format("opentype");
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url("fonts/Roboto-Regular.ttf") format("opentype");
+}
+
+/* End Fonts */
+
+html, body {
+  font-family: 'Roboto';
 }
 
 /* Header */
@@ -12,8 +28,8 @@
   background-size: cover;
 }
 .header-bg .navbar {
-  height: 90px;
-  background: rgba(0,0,0,0.4);
+  height: 100px;
+  background: rgba(10, 19, 48, 0.5);
 }
 .navbar {
   margin-bottom: 0;
@@ -28,13 +44,14 @@
   margin: 0 15px;
 }
 .header-bg .navbar-nav li {
+  font-weight: 500;
   height: 99px;
 }
 .navbar-nav li:last-child {
   margin-right: 0;
 }
 .header-bg .navbar-nav li.active {
-  border-bottom: 5px solid #FFB901;
+  border-bottom: 4px solid #FFB901;
 }
 .header-bg .navbar-nav li.active a {
   color: #FFB901;
@@ -55,10 +72,10 @@
   background: none;
 }
 .navbar-brand {
-  font-size: 50px;
+  font-family: 'Arvo BoldItalic';
+  font-size: 36px;
   color: white;
-  font-weight: bold;
-  font-style: italic;
+  letter-spacing: 1px;
 }
 .navbar-brand a:hover {
   color: white;
@@ -71,21 +88,24 @@
   background: transparent;
 }
 .jumblock {
+  font-size: 20px;
+  line-height: 1.2;
   height: 265px;
-  background: rgba(0,0,0,0.7);
+  background: rgba(10, 19, 47, 0.7);
   margin-right: 30px;
-  border-radius: 5px;
+  border-radius: 4px;
   padding: 40px;
   color: white;
 }
-.jumblock .welcome {
-  font-size: 50px;
+.jumblock .welcome, .jumblock .to-silveryhaul {
+  font-family: 'Ubuntu';
+  font-size: 48px;
+  font-weight: bold;
+  letter-spacing: 1.3px;
   text-transform: uppercase;
 }
-.jumblock .to-silveryhaul {
-  font-size: 50px;
-  font-weight: bold;
-  text-transform: uppercase;
+.jumblock .welcome {
+  font-weight: 300;
 }
 
 /* Header */
@@ -93,28 +113,35 @@
 /* Common */
 
 .number {
-  height: 100px;
-  border-right: 5px solid #FFB901;
+  height: 114px;
+  border-right: 6px solid #FFB901;
   text-align: center;
   padding-top: 10px;
 }
 .title {
-  color: #0A1332;
-  font-size: 40px;
+  font-family: 'Ubuntu';
+  font-size: 36px;
+  font-weight: 300;
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 20px;
+  line-height: 1;
+  letter-spacing: 1.3px;
+  color: #0A1331;
 }
 .title span {
   font-weight: bold;
 }
 .description {
-  color: #9295A4;
+  font-size: 16px;
+  line-height: 1.38;
+  letter-spacing: 0.5px;
+  color: rgba(10, 19, 49, 0.5);
 }
 .socials .social-icon {
   width: 30px;
   height: 30px;
-  border: 2px solid grey;
+  border: 2px solid rgba(10, 19, 48, 0.5);
   border-radius: 50%;
   padding: 5px;
   float: left;
@@ -126,7 +153,7 @@
 .socials .social-icon svg {
   width: 16px;
   height: 16px;
-  fill: grey;
+  fill: rgba(10, 19, 48, 0.5);
 }
 .socials .social-icon.linkedin svg {
   width: 14px;
@@ -153,6 +180,10 @@
 .about-us .title {
   text-align: left;
 }
+.about-us .description {
+  text-align: left;
+  font-size: 14px;
+}
 
 /* End About Us */
 
@@ -163,9 +194,12 @@
   background-color: #F7F8FA;
 }
 .our-key-points .key-title {
-  font-size: 28px;
+  font-family: 'Ubuntu';
+  font-size: 24px;
   font-weight: bold;
-  color: #0A1332;
+  line-height: 1.17;
+  letter-spacing: 0.9px;
+  color: #0A1331;
 }
 .our-key-points .management {
   margin-top: 50px;
@@ -195,23 +229,30 @@
   width: 100%;
 }
 .our-fleets .truck-title {
-  font-size: 18px;
+  font-family: 'Ubuntu';
+  font-size: 24px;
   font-weight: bold;
-  color: #0A1332;
+  line-height: 1.17;
+  letter-spacing: 0.9px;
+  color: #0A1331;
   margin-bottom: 10px;
 }
 .our-fleets .truck-description {
   font-size: 12px;
-  color: #9295A4;
+  line-height: 1.33;
+  letter-spacing: 0.4px;
+  color: rgba(10, 19, 49, 0.5);
   margin-bottom: 5px;
 }
 .our-fleets .truck-distance {
-  color: #0A1332;
+  letter-spacing: 0.3px;
+  color: #0A1331;
 }
 .our-fleets .truck-distance span {
   font-weight: bold;
 }
 .our-fleets .truck-class {
+  letter-spacing: 0.3px;
   float: right;
   color: #0A1332;
 }
@@ -219,11 +260,13 @@
   font-weight: bold;
 }
 .our-fleets .truck-details-button {
-  width: 100px;
+  width: 110px;
   text-align: center;
   border: 2px solid #FFB901;
+  border-radius: 2px;
   cursor: pointer;
   margin-top: 15px;
+  padding: 4px;
 }
 .our-fleets .truck-more {
   display: none;
@@ -256,15 +299,16 @@
 }
 .our-fleets .more-trucks {
   margin: 100px auto 0;
-  font-size: 12px;
-  width: 180px;
+  width: 200px;
   text-align: center;
   background-color: #FFB901;
-  height: 50px;
-  padding: 18px;
+  height: 54px;
+  padding: 19px;
   border-radius: 2px;
   text-transform: uppercase;
   cursor: pointer;
+  letter-spacing: 0.7px;
+  color: #583109;
 }
 .our-fleets .more-trucks:hover {
   background-color: #FFB920;
@@ -285,6 +329,7 @@
   margin-right: -15px;
   background-color: #FFB901;
   opacity: 1;
+  color: #583109;
 }
 #truckModal .truck-info {
   height: 215px;
@@ -293,37 +338,42 @@
   padding-left: 50px;
 }
 #truckModal .truck-info .truck-title {
+  font-family: 'Ubuntu';
   font-size: 36px;
+  font-weight: bold;
+  line-height: 1.11;
 }
 #truckModal .truck-info .truck-class {
   float: none;
   text-align: center;
-  font-weight: bold;
-  font-size: 16px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
   margin-top: 15px;
 }
 #truckModal .truck-more-info {
   height: 190px;
   border-bottom: 2px solid #E8E9E9;
-  background-color: #F7F8FA;
-  color: #52586E;
+  background-color: #F8F8FA;
+  color: rgba(10, 19, 49, 0.7);
   padding: 20px;
   padding-left: 50px;
-  font-size: 18px;
+  font-size: 20px;
 }
 #truckModal .truck-more-info span {
   font-size: 90px;
+  font-weight: 500;
 }
 #truckModal .truck-visited-countries {
   height: 460px;
-  background-color: #FBFBFD;
+  background-color: #FBFCFE;
   padding: 20px;
   padding-left: 50px;
-  font-size: 16px;
+  font-size: 20px;
 }
 #truckModal .truck-visited-countries .vc-title {
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 24px;
+  font-weight: 900;
   margin-bottom: 40px;
   color: #4B4B4B;
 }
@@ -344,7 +394,7 @@
 .our-team {
   padding: 50px 0;
   background-color: #F7F8FA;
-  color: #0A1332;
+  color: #0A1331;
 }
 .our-team .description {
   text-align: center;
@@ -356,15 +406,20 @@
   width: 100%;
 }
 .our-team .team-name {
-  font-size: 20px;
+  font-family: 'Ubuntu';
+  font-size: 24px;
   font-weight: bold;
+  line-height: 0.92;
+  letter-spacing: 0.9px;
   margin-top: 20px;
   text-align: center;
-  color: #0A1332;
+  color: #0A1331;
 }
 .our-team .team-position {
   text-align: center;
-  color: #9295A4;
+  line-height: 1.57;
+  letter-spacing: 0.5px;
+  color: rgba(10, 19, 49, 0.5);
 }
 .our-team .team-email {
   margin-top: 40px;
@@ -374,10 +429,10 @@
 .our-team .team-phone {
   margin: 10px 0 20px;
   text-align: center;
-  font-size: 16px;
-  background-color: #EDEEF3;
+  font-size: 18px;
+  background-color: #EDEFF3;
   padding: 6px;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 .our-team .team {
   margin-top: 50px;
@@ -395,7 +450,7 @@
   bottom: 0;
   width: 100%;
   height: 100px;
-  background-color: #EDEEF3;
+  background-color: #EDEFF3;
 }
 .footer a {
   color: #7E8194;
@@ -408,6 +463,20 @@
 }
 .footer .navbar-nav li.socials .social-icon {
   margin-top: 30px;
+}
+.footer .navbar-brand {
+  font-family: 'Arvo BoldItalic';
+  font-size: 20px;
+  color: rgba(10, 19, 49, 0.5);
+  letter-spacing: 0.6px;
+}
+.footer .navbar-brand a:hover {
+  color: rgba(10, 19, 49, 0.5);
+}
+.footer .navbar-nav li {
+  font-weight: 500;
+  letter-spacing: 0.9px;
+  color: rgba(10, 19, 49, 0.5);
 }
 
 /* End Footer */
