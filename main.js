@@ -177,7 +177,7 @@ $(document).ready(function(){
   function renderTeam(){
     for (var i = 0; i < team.length; i++) {
       var item = $('.our-team .team-item-copy').clone();
-      item.removeClass('team-item-copy').addClass('team-item');
+      item.removeClass('team-item-copy');
       item.find('.team-image').attr('src', team[i]['image']);
       item.find('.team-name').html(team[i]['name']);
       item.find('.team-position').html(team[i]['position']);
@@ -186,7 +186,7 @@ $(document).ready(function(){
       item.find('.socials .facebook').attr('href', team[i]['socials']['facebook']);
       item.find('.socials .twitter').attr('href', team[i]['socials']['twitter']);
       item.find('.socials .linkedin').attr('href', team[i]['socials']['linkedin']);
-      $('.our-team .team').append(item);
+      $(item).insertBefore($('.our-team .team .team-item-copy'));
     }
   };
 
@@ -248,9 +248,11 @@ $(document).ready(function(){
   }
 
   function drawChart(id) {
+    var facts_title = $('.facts-title');
+    var facts_number = $('.facts-number');
     var car_data = cars[id]['chart_data']['bar_chart']['data'];
     var sum = car_data.reduce((previous, current) => current += previous);
-    var number = sum / car_data.length;
+    var number = parseInt(sum / car_data.length);
     var data = google.visualization.arrayToDataTable([
       ['Effort', 'Amount given'],
       ['', 100 - number],
@@ -263,10 +265,17 @@ $(document).ready(function(){
         1: { color: '4CABFF' }
       },
       pieSliceText: 'none',
-      legend: 'none'
+      legend: 'none',
+      tooltip: {
+        text: 'percentage'
+      }
     };
     var chart = new google.visualization.PieChart(document.getElementById('facts-chart'));
     chart.draw(data, options);
+    facts_title.find('span').html(number + '% - ');
+    facts_number.html(number + '%');
+    $('#facts-chart').append(facts_title);
+    $('#facts-chart').append(facts_number);
   }
 
   function drawStuff(id) {
@@ -309,7 +318,7 @@ $(document).ready(function(){
       bar: {
         groupWidth: '90%'
       },
-      fontSize: 10
+      fontSize: 12
     };
 
     var chart = new google.visualization.ColumnChart(document.getElementById('months-chart'));
