@@ -117,6 +117,8 @@ html, body {
   border-right: 6px solid #FFB901;
   text-align: center;
   padding-top: 10px;
+  letter-spacing: 0.5px;
+  color: #0a1331;
 }
 .title {
   font-family: 'Ubuntu';
@@ -200,6 +202,7 @@ html, body {
   line-height: 1.17;
   letter-spacing: 0.9px;
   color: #0A1331;
+  margin: 12px 0;
 }
 .our-key-points .management {
   margin-top: 50px;
