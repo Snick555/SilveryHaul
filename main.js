@@ -18,42 +18,39 @@ $(document).ready(function(){
         },
         "bar_chart": {
           "title": "2016",
-          "data": [33, 10, 9, 28, 31, 74, 69, 47, 55, 7, 1, 23, 40, 15, 55, 38, 62, 91, 63, 43, 83, 75, 59, 6, 52, 60, 39, 24, 37, 52, 31, 12, 85, 78, 80, 62, 18, 11, 69, 30, 1, 43, 79, 85, 36, 38, 85, 96]
+          "data": [33, 10, 9, 28, 31, 74, 69, 47, 55, 7, 1, 23, 40, 15, 55, 38, 62, 91, 63, 43, 83, 75, 59, 6, 52, 60, 39, 24, 37, 52, 31, 12, 85, 78, 80, 62, 18, 11, 69, 30, 1, 43, 79, 85, 36, 38, null, null]
         }
       }
     }, {
       "image": "images/truck.jpg",
-      "title": "scania r480 8x2",
+      "title": "Ford E500 8x2",
       "description": "lorem ipsum dolor sit amet, consectetur adipiscing elit. etiam vestibulum tortor sed leo gravida ultrices. nunc pretium, orci sed lobortis iaculis, mauris turpis facilisis augue, vitae pulvinar mi neque id nisl.",
       "class": "c",
-      "distance": 300000,
-      "trips": 121,
-      "km": 300000,
+      "distance": 200000,
+      "trips": 101,
+      "km": 30000,
       "chart_data": {
         "countries": {
-          "Germany": 5,
-          "Ukraine": 12,
-          "Italy": 28,
+          "Mexico": 5,
           "China": 2
         },
         "bar_chart": {
           "title": "2016",
-          "data": [43, 71, 46, 40, 45, 82, 14, 28, 49, 54, 59, 91, 42, 43, 60, 78, 1, 2, 21, 3, 24, 41, 40, 36, 30, 92, 4, 30, 73, 67, 46, 51, 48, 65, 87, 21, 93, 40, 55, 71, 39, 33, 25, 18, 69, 68, 31, 79]
+          "data": [43, 71, 46, 40, 45, 82, 14, 28, 49, 54, 59, 91, 42, 43, 60, 78, 1, 2, 21, 3, 24, 41, 40, 36, 30, 92, 4, 30, 73, 67, 46, 51, 48, 65, 87, 21, 93, 40, 55, 71, 39, 33, null, null, null, null, null, null]
         }
       }
     }, {
       "image": "images/truck.jpg",
-      "title": "Scania R480 8x2",
+      "title": "BMW R480 8x2",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum tortor sed leo gravida ultrices. Nunc pretium, orci sed lobortis iaculis, mauris turpis facilisis augue, vitae pulvinar mi neque id nisl.",
-      "class": "C",
-      "distance": 300000,
-      "trips": 121,
-      "km": 300000,
+      "class": "A",
+      "distance": 250000,
+      "trips": 98,
+      "km": 43000,
       "chart_data": {
         "countries": {
           "Germany": 5,
-          "Ukraine": 12,
-          "Italy": 28,
+          "USA": 12,
           "China": 2
         },
         "bar_chart": {
@@ -63,17 +60,17 @@ $(document).ready(function(){
       }
     }, {
       "image": "images/truck.jpg",
-      "title": "Scania R480 8x2",
+      "title": "Mercedes R480 8x2",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum tortor sed leo gravida ultrices. Nunc pretium, orci sed lobortis iaculis, mauris turpis facilisis augue, vitae pulvinar mi neque id nisl.",
-      "class": "C",
-      "distance": 300000,
-      "trips": 121,
-      "km": 300000,
+      "class": "D",
+      "distance": 240000,
+      "trips": 145,
+      "km": 3200000,
       "chart_data": {
         "countries": {
           "Germany": 5,
           "Ukraine": 12,
-          "Italy": 28,
+          "Spain": 28,
           "China": 2
         },
         "bar_chart": {
@@ -86,14 +83,14 @@ $(document).ready(function(){
       "title": "Scania R480 8x2",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum tortor sed leo gravida ultrices. Nunc pretium, orci sed lobortis iaculis, mauris turpis facilisis augue, vitae pulvinar mi neque id nisl.",
       "class": "C",
-      "distance": 300000,
-      "trips": 121,
-      "km": 300000,
+      "distance": 43000,
+      "trips": 124,
+      "km": 400000,
       "chart_data": {
         "countries": {
           "Germany": 5,
-          "Ukraine": 12,
-          "Italy": 28,
+          "Ukraine": 8,
+          "Italy": 8,
           "China": 2
         },
         "bar_chart": {
@@ -103,16 +100,16 @@ $(document).ready(function(){
       }
     }, {
       "image": "images/truck.jpg",
-      "title": "Scania R480 8x2",
+      "title": "BMW R480 8x2",
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vestibulum tortor sed leo gravida ultrices. Nunc pretium, orci sed lobortis iaculis, mauris turpis facilisis augue, vitae pulvinar mi neque id nisl.",
       "class": "C",
-      "distance": 300000,
-      "trips": 121,
-      "km": 300000,
+      "distance": 340000,
+      "trips": 34,
+      "km": 280000,
       "chart_data": {
         "countries": {
-          "Germany": 5,
-          "Ukraine": 12,
+          "Germany": 3,
+          "Poland": 12,
           "Italy": 28,
           "China": 2
         },
@@ -252,7 +249,7 @@ $(document).ready(function(){
     var facts_number = $('.facts-number');
     var car_data = cars[id]['chart_data']['bar_chart']['data'];
     var sum = car_data.reduce((previous, current) => current += previous);
-    var number = parseInt(sum / car_data.length);
+    var number = parseInt(sum / car_data.filter(function(e){return e}).length);
     var data = google.visualization.arrayToDataTable([
       ['Effort', 'Amount given'],
       ['', 100 - number],
