@@ -120,6 +120,11 @@ html, body {
   letter-spacing: 0.5px;
   color: #0a1331;
 }
+.number .glyphicon {
+  color: rgba(10, 19, 48, 0.5);
+  margin-right: 5px;
+  margin-top: 5px;
+}
 .title {
   font-family: 'Ubuntu';
   font-size: 36px;
@@ -475,6 +480,30 @@ html, body {
 }
 
 /* End Our Team */
+
+/* Contact Us */
+
+.contact-us {
+  padding: 50px 0;
+}
+.contact-us .glyphicon {
+  border: 2px solid rgba(10, 19, 48, 0.5);
+  border-radius: 50%;
+  padding: 10px;
+}
+.contact-us span {
+  margin-left: 50px;
+}
+.contact-us .contact-name, .contact-us .contact-email, .contact-us .contact-phone, .contact-us .contact-address, .contact-us .contact-work-hours {
+  font-size: 28px;
+  margin: 15px 0;
+  color: rgba(10, 19, 48, 0.5);
+}
+.contact-us .contact-email, .contact-us .contact-address {
+  opacity: 0.5;
+}
+
+/* End Contact Us */
 
 /* Footer */
 
