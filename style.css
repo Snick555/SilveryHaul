@@ -465,10 +465,13 @@ html, body {
   padding: 6px;
   border-radius: 4px;
 }
+.our-team .team-email a, .our-team .team-phone a {
+  color: #0A1331;
+}
 .our-team .team {
   margin-top: 50px;
 }
-.our-team .team-item-copy .team-email, .our-team .team-item-copy .team-phone {
+.our-team .team-item-copy .team-email, .our-team .team-item-copy .team-phone, .our-team .team-item-copy .team-email a, .our-team .team-item-copy .team-phone a {
   color: #adafb3;
 }
 .our-team .socials {
@@ -492,15 +495,18 @@ html, body {
   padding: 10px;
 }
 .contact-us span {
-  margin-left: 50px;
+  margin-left: 10px;
 }
 .contact-us .contact-name, .contact-us .contact-email, .contact-us .contact-phone, .contact-us .contact-address, .contact-us .contact-work-hours {
   font-size: 28px;
-  margin: 15px 0;
+  margin: 15px;
   color: rgba(10, 19, 48, 0.5);
 }
 .contact-us .contact-email, .contact-us .contact-address {
   opacity: 0.5;
+}
+.contact-us a {
+  color: rgba(10, 19, 48, 0.5);
 }
 
 /* End Contact Us */

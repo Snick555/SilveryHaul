@@ -126,7 +126,7 @@ $(document).ready(function(){
       "name": "Joshua Ross",
       "position": "Founder, CEO",
       "email": "joshua@gmail.com",
-      "phone": "1234567890",
+      "phone": "1 234 567 890",
       "socials": {
         "facebook": "#",
         "twitter": "#",
@@ -137,10 +137,9 @@ $(document).ready(function(){
       "name": "Jayden Joseph",
       "position": "Founder, CEO",
       "email": "jayden@gmail.com",
-      "phone": "1234567890",
+      "phone": "1 234 567 890",
       "socials": {
         "facebook": "#",
-        "twitter": "#",
         "linkedin": "#"
       }
     }
@@ -178,11 +177,28 @@ $(document).ready(function(){
       item.find('.team-image').attr('src', team[i]['image']);
       item.find('.team-name').html(team[i]['name']);
       item.find('.team-position').html(team[i]['position']);
-      item.find('.team-email').html(team[i]['email']);
-      item.find('.team-phone').html(team[i]['phone']);
-      item.find('.socials .facebook').attr('href', team[i]['socials']['facebook']);
-      item.find('.socials .twitter').attr('href', team[i]['socials']['twitter']);
-      item.find('.socials .linkedin').attr('href', team[i]['socials']['linkedin']);
+      item.find('.team-email a').html(team[i]['email']).attr('href', 'mailto:' + team[i]['email']);
+      item.find('.team-phone a').html(team[i]['phone']).attr('href', 'tel:' + team[i]['phone']);
+      var w = 0;
+      if (team[i]['socials']['facebook']) {
+        item.find('.socials .facebook').attr('href', team[i]['socials']['facebook']);
+        w++;
+      } else {
+        item.find('.socials .facebook').remove();
+      }
+      if (team[i]['socials']['twitter']) {
+        item.find('.socials .twitter').attr('href', team[i]['socials']['twitter']);
+        w++;
+      } else {
+        item.find('.socials .twitter').remove();
+      }
+      if (team[i]['socials']['linkedin']) {
+        item.find('.socials .linkedin').attr('href', team[i]['socials']['linkedin']);
+        w++;
+      } else {
+        item.find('.socials .linkedin').remove();
+      }
+      item.find('.socials').css('width', (w * 50) + 'px');
       $(item).insertBefore($('.our-team .team .team-item-copy'));
     }
   };
